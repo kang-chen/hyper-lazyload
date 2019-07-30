@@ -106,4 +106,4 @@ const mainModule = (function () {
     }
 })();
 
-export default mainModule;
+module.exports = mainModule;

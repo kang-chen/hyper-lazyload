@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Lazy load stream of images into a container, no html required",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "test"
+    "test": "mocha"
   },
-  "author": "Kang",
-  "license": "MIT"
+  "author": "K Dog",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
+  }
 }
