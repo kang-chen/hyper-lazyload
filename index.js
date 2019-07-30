@@ -68,7 +68,6 @@ const mainModule = (function () {
         return result;
         };
     };
-        
 
     function handleLoadImages(event) {
         console.log('handleLoadImages', event);
@@ -106,4 +105,4 @@ const mainModule = (function () {
     }
 })();
 
-module.exports = mainModule;
+export default mainModule
