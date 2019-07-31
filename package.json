@@ -32,5 +32,9 @@
     "browserify": "^16.3.0",
     "chai": "^4.2.0",
     "mocha": "^6.2.0"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/kang-chen/hyper-lazyload.git"
   }
 }
