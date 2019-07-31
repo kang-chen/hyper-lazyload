@@ -34,7 +34,7 @@ const mainModule = (function () {
             })
         });
     }
-
+    
     const imageElementHeight = 250;
 
     function throttleUnderscore(func, wait, options) {
@@ -82,7 +82,7 @@ const mainModule = (function () {
     }
 
     return {
-        init: function(f = [], c=3, cId='lazy-load') {
+        init: function(f = [], c=3, cId='lazy-load', throttleDuration=1000) {
             
             if (f.length === 0) {
                 for (let i=0; i < 100; i++) {
@@ -100,7 +100,7 @@ const mainModule = (function () {
             lazyLoadContainer.style.height = '600px';
             lazyLoadContainer.style.overflowY = 'scroll';
 
-            lazyLoadContainer.addEventListener('scroll', throttleUnderscore(handleLoadImages, 1000));
+            lazyLoadContainer.addEventListener('scroll', throttleUnderscore(handleLoadImages, throttleDuration));
         }    
     }
 })();
