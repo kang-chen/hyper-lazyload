@@ -4,7 +4,20 @@
   "description": "Lazy load stream of images into a container, no html required",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require @babel/register"
+    "test": "mocha --require @babel/register",
+    "build": "browserify -s HyperLazyload -r ./ | minify > hyperlazyload.min.js"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "@babel/preset-env"
+          ]
+        }
+      ]
+    ]
   },
   "author": "K Dog",
   "license": "MIT",
@@ -14,6 +27,9 @@
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/register": "^7.5.5",
+    "babel-minify": "^0.5.0",
+    "babelify": "^10.0.0",
+    "browserify": "^16.3.0",
     "chai": "^4.2.0",
     "mocha": "^6.2.0"
   }
