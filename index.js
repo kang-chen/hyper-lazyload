@@ -6,9 +6,8 @@ const mainModule = (function () {
     let chunk = null;
 
     function loadMultipleImages(srcArr, num) {
-            
-        const promises = [];
 
+        const promises = [];
         loadingImages = true;
         
         for(var i=0; i < num; i++) {
@@ -30,7 +29,7 @@ const mainModule = (function () {
 
         Promise.all(promises).then(function(images) {
             images.forEach(function(img) {
-            document.getElementById('lazy-load').appendChild(img);
+                document.getElementById('lazy-load').appendChild(img);
             })
         });
     }
@@ -38,6 +37,7 @@ const mainModule = (function () {
     const imageElementHeight = 250;
 
     function throttleUnderscore(func, wait, options) {
+        
         var context, args, result;
         var timeout = null;
         var previous = 0;
@@ -70,13 +70,11 @@ const mainModule = (function () {
     };
 
     function handleLoadImages(event) {
-        console.log('handleLoadImages', event);
         const offsettop = event.target.scrollTop;
-
         if (offsettop >= lazyLoadContainer.offsetHeight - imageElementHeight && 
             fetchArr.length >= chunk &&
-            loadingImages === false) {
-                console.log('load multiple');
+            loadingImages === false && 
+            event.deltaY > 0) {
                 loadMultipleImages(fetchArr, chunk);
             }
     }
@@ -99,8 +97,17 @@ const mainModule = (function () {
             lazyLoadContainer.style.width = '450px';
             lazyLoadContainer.style.height = '600px';
             lazyLoadContainer.style.overflowY = 'scroll';
+ 
+            // lazyLoadContainer.addEventListener('wheel', function(event) {
+            //         if( event.target !== this ) {
+            //             return;
+            //         } else {
+            //             throttleUnderscore(handleLoadImages, throttleDuration)
+            //         }
+            //     }
+            // );
 
-            lazyLoadContainer.addEventListener('scroll', throttleUnderscore(handleLoadImages, throttleDuration));
+            lazyLoadContainer.addEventListener('wheel', throttleUnderscore(handleLoadImages, throttleDuration));
         }    
     }
 })();

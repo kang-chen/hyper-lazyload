@@ -8,5 +8,5 @@ describe('Lazy Loading', function() {
     it('should load module', function() {
         should.exist(lazyLoading);
     });
-
-  });
+    
+});
