@@ -55,6 +55,10 @@ You can either upload to CDN or include it inline in your html with `<script></s
 
 `npm run test`
 
+## Notes
+
+This is more like a proof of concept now as there is now native lazy loading in [Chrome!](https://addyosmani.com/blog/lazy-loading/)
+
 ## License
 
 MIT
